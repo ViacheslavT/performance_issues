@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.xyz.performance</groupId>
+    <artifactId>performance</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+        <h2.db.version>1.4.193</h2.db.version>
+        <spring.fox.swagger.version>2.9.2</spring.fox.swagger.version>
+        <projectlombok.version>1.18.6</projectlombok.version>
+        <spring.framework.boot.version>2.1.4.RELEASE</spring.framework.boot.version>
+        <event.service.dto.version>1.0-SNAPSHOT</event.service.dto.version>
+        <event.service.api.version>1.0-SNAPSHOT</event.service.api.version>
+        <event.service.repository.version>1.0-SNAPSHOT</event.service.repository.version>
+        <event.service.impl.version>1.0-SNAPSHOT</event.service.impl.version>
+        <event.service.rest.version>1.0-SNAPSHOT</event.service.rest.version>
+        <jmh.version>1.21</jmh.version>
+        <main.class>event.service.Application</main.class>
+    </properties>
+
+    <modules>
+        <module>event-service-api</module>
+        <module>event-service-dto</module>
+        <module>event-service-repository</module>
+        <module>event-service-impl</module>
+        <module>event-service-rest</module>
+    </modules>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Domain dependencies configuration -->
+            <dependency>
+                <groupId>com.xyz.performance</groupId>
+                <artifactId>event-service-dto</artifactId>
+                <version>${event.service.dto.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xyz.performance</groupId>
+                <artifactId>event-service-api</artifactId>
+                <version>${event.service.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xyz.performance</groupId>
+                <artifactId>event-service-repository</artifactId>
+                <version>${event.service.repository.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xyz.performance</groupId>
+                <artifactId>event-service-impl</artifactId>
+                <version>${event.service.impl.version}</version>
+            </dependency>
+            <!-- End of Domain dependencies configuration -->
+            <!-- Spring framework configuration -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>${spring.framework.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.framework.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${spring.framework.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.framework.boot.version}</version>
+            </dependency>
+            <!-- End of Spring framework configuration -->
+            <!-- H2 embed database -->
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.db.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- End H2 embed database -->
+            <!-- Swagger documentation dependencies -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${spring.fox.swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${spring.fox.swagger.version}</version>
+            </dependency>
+            <!-- End of Swagger documentation dependencies -->
+            <!-- Lombok tool dependencies -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${projectlombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- End Lombok tool dependencies -->
+            <!-- Java Micro Bench Marks -->
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-core</artifactId>
+                <version>${jmh.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.openjdk.jmh</groupId>
+                <artifactId>jmh-generator-annprocess</artifactId>
+                <version>${jmh.version}</version>
+            </dependency>
+            <!-- End of Java Micro Bench Marks -->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <showWarnings>true</showWarnings>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
