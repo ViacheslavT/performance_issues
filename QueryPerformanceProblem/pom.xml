@@ -14,7 +14,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-        <h2.db.version>1.4.193</h2.db.version>
+        <h2.db.version>2.1.210</h2.db.version>
         <spring.fox.swagger.version>2.9.2</spring.fox.swagger.version>
         <projectlombok.version>1.18.6</projectlombok.version>
         <spring.framework.boot.version>2.1.4.RELEASE</spring.framework.boot.version>
