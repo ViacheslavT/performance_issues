@@ -17,7 +17,7 @@
         <h2.db.version>1.4.193</h2.db.version>
         <spring.fox.swagger.version>2.9.2</spring.fox.swagger.version>
         <projectlombok.version>1.18.6</projectlombok.version>
-        <spring.framework.boot.version>2.1.4.RELEASE</spring.framework.boot.version>
+        <spring.framework.boot.version>2.5.12</spring.framework.boot.version>
         <event.service.dto.version>1.0-SNAPSHOT</event.service.dto.version>
         <event.service.api.version>1.0-SNAPSHOT</event.service.api.version>
         <event.service.repository.version>1.0-SNAPSHOT</event.service.repository.version>
